@@ -7,29 +7,39 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="styled.css">
+    
        <title>Timed Quiz</title>
 </head>
 <body>
     <!-- As a link -->
     <nav class="jumbotron text-center">
-        <a class="navbar-brand text-center" href="#">High Scores</a>
+        <a class="navbar-brand" href="#">High Score</a>
+        <!-- add timer countdown -->
+        <h2 id="timer">10:00</h2>
     </nav>
     <div class="container-fluid row">
         <div class="col-md-2 ml-auto"></div>
-        <div class="col-md-8 pt-5 mt-5 mx-auto style='width: 200px;'">
-            <p class="text-center" id="question">Example text</p>
+        <div class="col-md-8 pt-5 mt-5 mx-auto questionContainer" style='width: 200px;'>
+            <p class="text-center" id="question">Start your Quiz</p>
             <ul class="list-group text-center">
-                <li class="list-group-item"><button class="btn btn-primary answers" value="1">Cras justo odio</button></li>
-                <li class="list-group-item"><button class="btn btn-primary answers" value="2">Dapibus ac facilisis in</button></li>
-                <li class="list-group-item"><button class="btn btn-primary answers" value="3">Morbi leo risus</button></li>
-                <li class="list-group-item"><button class="btn btn-primary answers" value="4">Porta ac consectetur ac</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer1 answers" value="1">Cras justo odio</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer2 answers" value="2">Dapibus ac facilisis in</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer3 answers" value="3">Morbi leo risus</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer4 answers" value="4">Porta ac consectetur ac</button></li>
             </ul>
         </div>
-        <div class="col-md-2 ml-auto"></div>
+        <div class="col-md-2 ml-auto scoreEl"> 
+            <p id="score"></p> 
+            <input id="intials">
+            <button class="btn btn-primary enterScore">Submit Score</button> 
+        </div>
     </div>
-    <script src="./script.js"></script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="javascript.js"></script>
+
 </body>
 </html>
