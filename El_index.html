@@ -36,3 +36,17 @@ $(".answers").on("click", function() {
              }
           }
   });
+
+
+
+  function saveScore() {
+    const initials = $("#initials").val();
+    scores = {
+        user: initials,
+        score: userScore
+    }
+    
+    //instead of using ^object ... pull from browser $("#initials")
+    localStorage.setItem("userHighScore", JSON.stringify(scores))
+    
+}
