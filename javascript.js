@@ -64,11 +64,19 @@ $(".answer4").text(answers[0][4]);
 let index = 0;
 
 function renderQuestion() {
+    if (index < startQuestions.length){
     $("#question").text(startQuestions[index].question);
     $(".answer1").text(answers[index][1]);
     $(".answer2").text(answers[index][2]);
     $(".answer3").text(answers[index][3]);
     $(".answer4").text(answers[index][4]);
+    }else{
+        $(".scoreEl").show()
+        $(".playAgain").show()
+        $(".questionContainer").hide()
+        $("#score").text(userScore);
+        clearInterval(timer)
+    }
 }
 
 
@@ -76,7 +84,7 @@ $(".answers").on("click", function () {
     var buttonStart = $(this).val();
     console.log(buttonStart);
 
-    if (index > startQuestions.length) {
+    if (index < startQuestions.length) {
         if (
             parseInt(buttonStart) === parseInt(startQuestions[index].answer)
         ) {
@@ -86,25 +94,24 @@ $(".answers").on("click", function () {
         }
         index++
         renderQuestion()
-    } else {
-        $(".scoreEl").show()
-        $(".playAgain").show()
-        $(".questionContainer").hide()
-        clearInterval(timer)
-        // localStorage.setItem("userHighScore", scoreEl)
-
     }
-
 
 });
 console.log(startQuestions[1].question, startQuestions[0].answer);
 
-// High score (local storage) and save initials
-
-// add event listener to attach to submit button
-
 
 // take initials/ score and save to local storage 
-
+// High score (local storage) and save initials
 // conditions for keeping score
+function saveScore() {
+    const initials = $("#initials").val();
+    scores = {
+        user: initials,
+        score: userScore
+    }
+    
+    //instead of using ^object ... pull from browser $("#initials")
+    localStorage.setItem("userHighScore", JSON.stringify(scores))
+    
+}
 
