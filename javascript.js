@@ -114,4 +114,5 @@ function saveScore() {
     localStorage.setItem("userHighScore", JSON.stringify(scores))
     
 }
+ $(".enterScore").on("click", saveScore ())
 
