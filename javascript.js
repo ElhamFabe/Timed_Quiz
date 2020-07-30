@@ -82,7 +82,6 @@ function renderQuestion() {
 
 $(".answers").on("click", function () {
     var buttonStart = $(this).val();
-    console.log(buttonStart);
 
     if (index < startQuestions.length) {
         if (
@@ -97,13 +96,13 @@ $(".answers").on("click", function () {
     }
 
 });
-console.log(startQuestions[1].question, startQuestions[0].answer);
+// console.log(startQuestions[1].question, startQuestions[0].answer);
 
 
 // take initials/ score and save to local storage 
 // High score (local storage) and save initials
 // conditions for keeping score
-$(".enterScore").on("click", saveScore())
+
 
 function saveScore() {
     const initials = $("#initials").val();
@@ -114,7 +113,8 @@ function saveScore() {
 
     //instead of using ^object ... pull from browser $("#initials")
     localStorage.setItem("userHighScore", JSON.stringify(scores));
-    scores = JSON.parse(localStorage.getItem("scores"))
-}
-console.log(saveScore)
+    // scores = JSON.parse(localStorage.getItem(""))
+};
+$(".enterScore").on("click", saveScore())
+
 
