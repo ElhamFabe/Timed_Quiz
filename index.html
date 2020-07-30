@@ -1,45 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
+    <!--description for S.E.O -->
+    <meta name="NJ driving quiz" content="NJ drivers knowlege quiz" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="styled.css">
-    
-       <title>Timed Quiz</title>
+
+    <title>Timed Quiz</title>
 </head>
+
 <body>
     <!-- As a link -->
     <nav class="jumbotron text-center">
-        <a class="navbar-brand" href="#">High Score</a>
+        <a class="navbar-brand" href="#">New Jersey Drivers Knowledge Quiz</a>
         <!-- add timer countdown -->
-        <h2 id="timer">10:00</h2>
+        <h2 id="timer">1:00</h2>
     </nav>
-    <div class="container-fluid row">
-        <div class="col-md-2 ml-auto"></div>
-        <div class="col-md-8 pt-5 mt-5 mx-auto questionContainer" style='width: 200px;'>
+    <!-- Quiz -->
+    <div class="container-fluid  row">
+        <div class="col-md-12 ml-auto"></div>
+        <div class="col-md-6 pt-5 mt-5 mx-auto questionContainer" style='width: 200px;'>
             <p class="text-center" id="question">Start your Quiz</p>
             <ul class="list-group text-center">
-                <li class="list-group-item"><button class="btn btn-primary answer1 answers" value="1">Cras justo odio</button></li>
-                <li class="list-group-item"><button class="btn btn-primary answer2 answers" value="2">Dapibus ac facilisis in</button></li>
-                <li class="list-group-item"><button class="btn btn-primary answer3 answers" value="3">Morbi leo risus</button></li>
-                <li class="list-group-item"><button class="btn btn-primary answer4 answers" value="4">Porta ac consectetur ac</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer1 answers" value="1">Cras justo
+                        odio</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer2 answers" value="2">Dapibus ac
+                        facilisis in</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer3 answers" value="3">Morbi leo
+                        risus</button></li>
+                <li class="list-group-item"><button class="btn btn-primary answer4 answers" value="4">Porta ac
+                        consectetur ac</button></li>
             </ul>
         </div>
-        <div class="col-md-2 ml-auto scoreEl"> 
-            <p id="score"></p> 
-            <input id="intials">
-            <button class="btn btn-primary enterScore">Submit Score</button> 
+        <div class="col-md-12 pt-5 mt-5 ml-auto text-center scoreEl">
+            <h1>High Score!</h1>
+            <br>
+            <!-- display highscore -->
+            <h2 id="score"> 0 </h2>
+            <!-- form to input intials -->
+            <form>
+                <br>
+                <input id="intials" intials="Enter Your Intials" placeholder="Enter Initials Here" />
+                <br>
+                <br>
+                <button class="btn btn-primary enterScore">Submit Score</button>
+            </form>
+            <br>
+            <a class="btn btn-primary playAgain" href="#">Play Again</a>
         </div>
     </div>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="javascript.js"></script>
 
 </body>
+
 </html>

@@ -12,3 +12,27 @@
     
 </body>
 </html>
+
+$(".answers").on("click", function() {
+    var buttonPressed = $(this).val();
+    if (parseInt(buttonPressed) === parseInt(questionsAnswers[index].answer)) {
+      index++;
+      userScore++;
+      if (questionsAnswers.length > index) {
+        renderAnswer();
+      } else {
+          $("#userScoreHTML").text(userScore);
+          localStorage.setItem("userScoreFinal", userScore);
+          window.location.href = "./highscore.html";
+      }
+    } else {
+             index++;
+             if (questionsAnswers.length > index) {
+              renderAnswer();
+             } else {
+                 $("#userScoreHTML").text(userScore);
+                 localStorage.setItem("userScoreFinal", userScore);
+                 window.location.href = "./highscore.html";
+             }
+          }
+  });

@@ -1,10 +1,11 @@
+
 // timer count down
-let startingTimer = 5;
+let startingTimer = 1;
 let time = startingTimer * 60;
 
 let timerEl = document.getElementById("timer");
 
-var timer = setInterval(countDown, 1000);
+let timer = setInterval(countDown, 1000);
 
 function countDown() {
 
@@ -21,12 +22,6 @@ function countDown() {
     timerEl.innerHTML = `${minutes}: ${seconds}`;
     time--;
 };
-
-// var startTime= 90
-// var counter = setInterval(function(){
-//     startTime--
-
-// })
 
 // create questions
 
@@ -53,7 +48,7 @@ console.log(
     answers[0][4],
     answers[0][1],
     answers[0][3],
-    answers[0][2]
+    answers[0][2],
 )
 // user score starts at 0
 let userScore = 0;
@@ -66,7 +61,7 @@ $(".answer3").text(answers[0][3]);
 $(".answer4").text(answers[0][4]);
 
 
-var index = 0;
+let index = 0;
 
 function renderQuestion() {
     $("#question").text(startQuestions[index].question);
@@ -75,17 +70,13 @@ function renderQuestion() {
     $(".answer3").text(answers[index][3]);
     $(".answer4").text(answers[index][4]);
 }
-// add event listerner to attach to sumbit button
 
-// take initials/ score and save to local storage 
-
-// conditions for keeping score
 
 $(".answers").on("click", function () {
     var buttonStart = $(this).val();
     console.log(buttonStart);
 
-    if (index <startQuestions.length) {
+    if (index > startQuestions.length) {
         if (
             parseInt(buttonStart) === parseInt(startQuestions[index].answer)
         ) {
@@ -97,13 +88,12 @@ $(".answers").on("click", function () {
         renderQuestion()
     } else {
         $(".scoreEl").show()
+        $(".playAgain").show()
         $(".questionContainer").hide()
         clearInterval(timer)
-
+        // localStorage.setItem("userHighScore", scoreEl)
 
     }
-
-
 
 
 });
@@ -111,4 +101,10 @@ console.log(startQuestions[1].question, startQuestions[0].answer);
 
 // High score (local storage) and save initials
 
+// add event listener to attach to submit button
+
+
+// take initials/ score and save to local storage 
+
+// conditions for keeping score
 
