@@ -103,6 +103,8 @@ console.log(startQuestions[1].question, startQuestions[0].answer);
 // take initials/ score and save to local storage 
 // High score (local storage) and save initials
 // conditions for keeping score
+$(".enterScore").on("click", saveScore())
+
 function saveScore() {
     const initials = $("#initials").val();
     scores = {
@@ -111,8 +113,8 @@ function saveScore() {
     }
 
     //instead of using ^object ... pull from browser $("#initials")
-    localStorage.setItem("userHighScore", JSON.stringify(scores))
-    // scores = JSON.parse(text)
+    localStorage.setItem("userHighScore", JSON.stringify(scores));
+    scores = JSON.parse(localStorage.getItem("scores"))
 }
-$(".enterScore").on("click", saveScore())
+console.log(saveScore)
 
