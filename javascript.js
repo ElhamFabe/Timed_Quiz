@@ -64,13 +64,13 @@ $(".answer4").text(answers[0][4]);
 let index = 0;
 
 function renderQuestion() {
-    if (index < startQuestions.length){
-    $("#question").text(startQuestions[index].question);
-    $(".answer1").text(answers[index][1]);
-    $(".answer2").text(answers[index][2]);
-    $(".answer3").text(answers[index][3]);
-    $(".answer4").text(answers[index][4]);
-    }else{
+    if (index < startQuestions.length) {
+        $("#question").text(startQuestions[index].question);
+        $(".answer1").text(answers[index][1]);
+        $(".answer2").text(answers[index][2]);
+        $(".answer3").text(answers[index][3]);
+        $(".answer4").text(answers[index][4]);
+    } else {
         $(".scoreEl").show()
         $(".playAgain").show()
         $(".questionContainer").hide()
@@ -109,10 +109,10 @@ function saveScore() {
         user: initials,
         score: userScore
     }
-    
+
     //instead of using ^object ... pull from browser $("#initials")
     localStorage.setItem("userHighScore", JSON.stringify(scores))
-    
+    // scores = JSON.parse(text)
 }
- $(".enterScore").on("click", saveScore ())
+$(".enterScore").on("click", saveScore())
 
