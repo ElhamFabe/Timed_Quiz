@@ -112,10 +112,7 @@ function saveScore() {
     }
 
     //instead of using ^object ... pull from browser $("#initials")
-    localStorage.setItem("userHighScore", JSON.stringify(scores));
-
-    // 
-    var getScores = JSON.parse(localStorage.getItem("scores"))
+    localStorage.setItem("initials", JSON.stringify(userScore));
 };
 $(".enterScore").on("click", saveScore())
 
