@@ -70,10 +70,14 @@ function renderQuestion() {
         $(".answer2").text(answers[index][2]);
         $(".answer3").text(answers[index][3]);
         $(".answer4").text(answers[index][4]);
-    } else {
-        $(".scoreEl").show()
-        $(".playAgain").show()
-        $(".questionContainer").hide()
+    } else if (time === 0) {
+        $(".questionContainer").hide();
+        $("#score").text(userScore)
+    }
+    else {
+        $(".scoreEl").show();
+        $(".playAgain").show();
+        $(".questionContainer").hide();
         $("#score").text(userScore);
         clearInterval(timer)
     }
@@ -110,10 +114,12 @@ function saveScore() {
         user: initials,
         score: userScore
     }
+    console.log("initials")
 
-    //instead of using ^object ... pull from browser $("#initials")
-    localStorage.setItem("initials", JSON.stringify(userScore));
+    localStorage.setItem("initials", JSON.stringify(scores));
+ 
 };
-$(".enterScore").on("click", saveScore())
+
+$(".enterScore").on("click", saveScore)
 
 
