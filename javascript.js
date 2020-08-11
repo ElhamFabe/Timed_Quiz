@@ -7,21 +7,42 @@ let timerEl = document.getElementById("timer");
 
 let timer = setInterval(countDown, 1000);
 
+let index = 0;
+
 function countDown() {
+    let minutes = Math.floor(time / 60)
+    let seconds = time % 60
 
+    seconds = seconds < 10 ? '0' + seconds : seconds
 
-    let minutes = Math.floor(time / 60);
-    let seconds = time % 60;
+    timerEl.innerHTML = `${minutes}: ${seconds}`
+    if (time >= 0) {
+        time--
+    }
+    console.log(time)
+
+    if (index < startQuestions.length) {
+        $('#question').text(startQuestions[index].question)
+        $('.answer1').text(answers[index][1])
+        $('.answer2').text(answers[index][2])
+        $('.answer3').text(answers[index][3])
+        $('.answer4').text(answers[index][4])
+    }
+
+    if (time === 0) {
+        $('.questionContainer').hide()
+        $('#score').text(userScore)
+        $('.scoreEl').show()
+        $('.playAgain').show()
+        $('.questionContainer').hide()
+        $('#score').text(userScore)
+        clearInterval(timer)
+    }
 
     if (time === 0) {
         clearInterval(timer)
     }
-
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    timerEl.innerHTML = `${minutes}: ${seconds}`;
-    time--;
-};
+}
 
 // create questions
 
@@ -60,30 +81,6 @@ $(".answer2").text(answers[0][2]);
 $(".answer3").text(answers[0][3]);
 $(".answer4").text(answers[0][4]);
 
-
-let index = 0;
-
-function renderQuestion() {
-    if (index < startQuestions.length) {
-        $("#question").text(startQuestions[index].question);
-        $(".answer1").text(answers[index][1]);
-        $(".answer2").text(answers[index][2]);
-        $(".answer3").text(answers[index][3]);
-        $(".answer4").text(answers[index][4]);
-    } else if (time === 0) {
-        $(".questionContainer").hide();
-        $("#score").text(userScore)
-    }
-    else {
-        $(".scoreEl").show();
-        $(".playAgain").show();
-        $(".questionContainer").hide();
-        $("#score").text(userScore);
-        clearInterval(timer)
-    }
-}
-
-
 $(".answers").on("click", function () {
     var buttonStart = $(this).val();
 
@@ -117,7 +114,7 @@ function saveScore() {
     console.log("initials")
 
     localStorage.setItem("initials", JSON.stringify(scores));
- 
+
 };
 
 $(".enterScore").on("click", saveScore)
